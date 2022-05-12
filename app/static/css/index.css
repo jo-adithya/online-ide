@@ -1,0 +1,20 @@
+.container {
+    display: flex;
+}
+
+.editor{
+    width: 48%;
+}
+
+.prog-language{
+    width: 4%;
+}
+
+.shell {
+    width: 48%;
+}
+
+.block {
+    display: block;
+    margin: 10px 0;
+}
