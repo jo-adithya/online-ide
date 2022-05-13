@@ -1,26 +1,38 @@
 {% extends "base.html" %}
 
 {% block head %}
-<link rel="stylesheet" href="{{ url_for('static', filename='css/index.css') }}">
+<link href="{{ url_for('static', filename='css/index.css') }}" rel="stylesheet" type="text/css">
 {% endblock head %}
 
 {% block body %}
-<main>
-  <div class="editor-header flex">
+<main class="container">
+  <div class="editor-header flex justify-sb">
     <div class="editor-header__filename">main.py</div>
     <div class="editor-header__lang">
-      <select name="pro-lang">
-        <option value="python">Python</option>
-        <option value="c">C</option>
-        <option value="java">Java</option>
-        <option value="javascript">JavaScript</option>
-      </select>
+      <div class="pro-lang__selector">Python</div>
+      <ul class="pro-lang__menu">
+        <li id="pro-lang-0">Python</li>
+        <li id="pro-lang-1">C</li>
+        <li id="pro-lang-2">C++</li>
+        <li id="pro-lang-3">Java</li>
+        <li id="pro-lang-4">JavaScript</li>
+      </ul>
     </div>
   </div>
 
-  <div class="editor-body">
-    <div class="editor-text"></div>
-    <div class="editor-shell"></div>
+  <div class="editor-body flex">
+    <div class="editor-text" contenteditable="true"></div>
+    <div class="editor-shell" contenteditable="true"></div>
   </div>
+
+  <button class="editor-run">
+    <svg width="25" height="25" viewBox="0 0 24 24">
+      <path
+        d="M20.2253 11.5642C20.5651 11.7554 20.5651 12.2446 20.2253 12.4358L5.74513 20.5809C5.41183 20.7683 5 20.5275 5 20.1451L5 3.85492C5 3.47251 5.41183 3.23165 5.74513 3.41914L20.2253 11.5642Z">
+      </path>
+    </svg>
+  </button>
 </main>
+
+<script src="{{ url_for('static', filename='js/index.js') }}"></script>
 {% endblock body %}
