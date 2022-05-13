@@ -1,0 +1,90 @@
+.container {
+  margin: 5rem;
+  color: #64637e;
+}
+
+.editor-header__filename {
+  padding: 8px 12px;
+  border: 1px solid var(--secondary-color);
+  background-color: var(--secondary-bg);
+  border-radius: var(--border-radius);
+}
+
+.editor-header__lang {
+  width: 200px;
+  background-color: var(--secondary-bg);
+}
+
+.pro-lang__selector {
+  border-radius: var(--border-radius);
+  border: 1px solid var(--secondary-color);
+  width: 100%;
+  padding: 8px 12px;
+  cursor: pointer;
+}
+
+.pro-lang__menu {
+  position: absolute;
+  display: none;
+  border-bottom-left-radius: var(--border-radius);
+  border-bottom-right-radius: var(--border-radius);
+  border: 1px solid var(--secondary-color);
+  border-top: 0 none;
+  background-color: var(--secondary-bg);
+  width: inherit;
+  padding: 8px;
+  z-index: 2;
+  list-style: none;
+  transform: translateY(-4px);
+}
+
+.pro-lang__menu li {
+  border-radius: var(--border-radius);
+  width: 100%;
+  padding: 8px;
+  cursor: pointer;
+}
+
+.pro-lang__menu li:hover {
+  background-color: var(--secondary-bg-dark);
+}
+
+.editor-body {
+  gap: 1rem;
+  margin-top: 1rem;
+}
+
+.editor-text,
+.editor-shell {
+  width: 100%;
+  max-height: 90vh;
+  height: 500px;
+  font-family: var(--monospace-font);
+  background-color: var(--secondary-bg);
+  border-radius: var(--border-radius);
+  border: 0.5px solid var(--secondary-color);
+  box-shadow: rgba(17, 17, 26, 0.05) 0px 4px 16px,
+    rgba(17, 17, 26, 0.05) 0px 8px 32px;
+  padding: 1rem;
+  font-size: 1rem;
+}
+
+.editor-text:focus, .editor-shell:focus {
+  outline: none;
+}
+
+.editor-run {
+  position: fixed;
+  top: 100%;
+  left: 100%;
+  transform: translate(-150%, -150%);
+  padding: 14px;
+  border-radius: 40px;
+  border: 0;
+  cursor: pointer;
+  background-color: rgb(89, 229, 89);
+}
+
+.editor-run svg {
+  fill: #fff;
+}
