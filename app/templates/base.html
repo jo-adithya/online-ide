@@ -1,35 +1,14 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  {% block head %}
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="{{url_for('static', filename='css/index.css')}}">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1">
   <title>{{ title }}</title>
-  {% endblock head %}
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/base.css') }}">
+  {% block head %}{% endblock head %}
 </head>
 <body>
-  {% block body %}
-  <div class="container">
-    <div class="prog-language">
-      <label for="python"></label>
-      <input type="radio" id="python" name="language" class="block">
-      <label for="c"></label>
-      <input type="radio" id="c" name="language" class="block">
-      <label for="java"></label>
-      <input type="radio" id="java" name="language" class="block">
-      <label for="javascript"></label>
-      <input type="radio" id="javascript" name="language" class="block">
-    </div>
-    <div class="editor">
-      editor
-    </div>
-    <div class="shell">
-      shell
-    </div>
-  </div>
-    
-  {% endblock body %}
+  {% block body %}{% endblock body %}
 </body>
 </html>

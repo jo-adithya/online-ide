@@ -1,9 +1,26 @@
 {% extends "base.html" %}
 
 {% block head %}
-    {{super()}}
+<link rel="stylesheet" href="{{ url_for('static', filename='css/index.css') }}">
 {% endblock head %}
 
 {% block body %}
-    {{ super() }}
+<main>
+  <div class="editor-header flex">
+    <div class="editor-header__filename">main.py</div>
+    <div class="editor-header__lang">
+      <select name="pro-lang">
+        <option value="python">Python</option>
+        <option value="c">C</option>
+        <option value="java">Java</option>
+        <option value="javascript">JavaScript</option>
+      </select>
+    </div>
+  </div>
+
+  <div class="editor-body">
+    <div class="editor-text"></div>
+    <div class="editor-shell"></div>
+  </div>
+</main>
 {% endblock body %}
