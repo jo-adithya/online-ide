@@ -57,8 +57,8 @@
 .editor-text,
 .editor-shell {
   width: 100%;
-  max-height: 90vh;
-  height: 500px;
+  height: 70vh;
+  overflow: auto;
   font-family: var(--monospace-font);
   background-color: var(--secondary-bg);
   border-radius: var(--border-radius);
