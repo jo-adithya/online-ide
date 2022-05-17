@@ -1,7 +1,3 @@
-$(document).ready(function() {
-  $('.pro-lang__selector').attachShadow({ mode: 'open' });
-})
-
 $('.pro-lang__selector').click(function () {
   const menu = $('.pro-lang__menu');
   const display = menu.css('display');
@@ -12,12 +8,30 @@ $('.pro-lang__selector').click(function () {
   }
 });
 
+$('.editor-run').click(function () {
+  $.ajax({
+    type : 'POST',
+    url : "/",
+    data : {'data': cleanProgramFile()}
+  })
+  .done(function(data){
+    $('.editor-shell').html(data.output);
+  });
+});
+
 $('.pro-lang__menu li').click(function () {
   const lang = $(this).text();
   $('.pro-lang__selector').text(validateLang(lang));
   $('.editor-header__filename').text(`main${getExtension(lang)}`);
   $(this).parent().css('display', 'none');
 });
+
+function cleanProgramFile(){
+  let programFile = $('.editor-text')[0].innerHTML.replaceAll('</div><div>', "<div>").replaceAll('/', '').replaceAll('<br>', '');
+  programFile = programFile.replaceAll("&nbsp;", " ").split("<div>");
+  programFile = programFile.filter(e => e);
+  return programFile;
+}
 
 function validateLang(lang) {
   switch (lang) {
