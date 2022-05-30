@@ -7,12 +7,13 @@ $('.pro-lang__selector').click(function () {
     menu.css('display', 'block');
   }
 });
-
+let lang = "Python";
 $('.editor-run').click(function () {
   $.ajax({
     type : 'POST',
     url : "/",
-    data : {'data': cleanProgramFile()}
+    data : {
+      'data': cleanProgramFile(), 'extension': getExtension(lang)}
   })
   .done(function(data){
     $('.editor-shell').html(data.output);
@@ -20,15 +21,15 @@ $('.editor-run').click(function () {
 });
 
 $('.pro-lang__menu li').click(function () {
-  const lang = $(this).text();
+  lang = $(this).text();
   $('.pro-lang__selector').text(validateLang(lang));
   $('.editor-header__filename').text(`main${getExtension(lang)}`);
   $(this).parent().css('display', 'none');
 });
 
 function cleanProgramFile(){
-  let programFile = $('.editor-text')[0].innerHTML.replaceAll('</div><div>', "<div>").replaceAll('/', '').replaceAll('<br>', '');
-  programFile = programFile.replaceAll("&nbsp;", " ").split("<div>");
+  let programFile = $('.editor-text')[0].innerHTML.replaceAll('</div><div>', "<div>").replaceAll('<br>', '');
+  programFile = programFile.replaceAll("&nbsp;", " ").replaceAll("&lt;", '<').replaceAll("&gt;", '>').replaceAll('</div>', '').split("<div>");
   programFile = programFile.filter(e => e);
   return programFile;
 }
